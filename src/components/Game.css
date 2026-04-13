@@ -1,0 +1,124 @@
+.game-container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.loading {
+  font-size: 1.5rem;
+  color: var(--text);
+  font-weight: 500;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background: rgba(30, 41, 59, 0.4);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+}
+
+.game-won {
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+  border: 2px solid var(--success);
+  border-radius: 16px;
+  animation: slideIn 0.5s ease-out;
+}
+
+.game-won h2 {
+  font-size: 2rem;
+  color: var(--success);
+  margin: 0 0 12px 0;
+}
+
+.game-won p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.play-again-btn {
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.play-again-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}
+
+.play-again-btn:active {
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .game-container {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 12px;
+  }
+}
